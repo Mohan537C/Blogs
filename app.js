@@ -1,7 +1,6 @@
 const exp=require("express");
 const bodyParser=require("body-parser");
 const ejs=require("ejs");
-const { response } = require("express");
 const blogs=[];
 const app=exp();
 app.set("view engine","ejs");
@@ -41,7 +40,7 @@ app.post("/",function(request,response){
     var now=new Date();
     var time=now.toLocaleTimeString();
     var head=request.body.head;
-    var txt="("+time+" IST) "+request.body.blog;
+    var txt="("+time+" GMT) "+request.body.blog;
     const kv={
         title:head,
         body:txt
