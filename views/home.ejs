@@ -1,0 +1,29 @@
+<%- include("header"); -%>
+    
+        <div  class="hcontent">
+            <h1>Home</h1>
+            <p><%= content %></p>
+        </div>
+
+        <div class="date">
+            <h2><%= day %> Events</h2>
+        </div>
+
+        <div class="main">
+         <% for(var i=0;i<data.length;i++){ %>
+                <div class="sub">
+                    <h3><%= data[i].title %></h3>
+                    <p class="content"><%= data[i].body.substring(0,100)+"... "%><a href="/post/<%= data[i].title %>">Read More</a></p>
+                </div>
+         <% } %>
+
+            <div class="compose">
+                <form action="/compose" method="post">
+                    <button class="sbt" name="com">Compose a New Blog</button>
+                </form>
+            </div>
+
+            <div style="height:50px; clear:both;"></div>
+        </div>
+
+<%- include("footer"); -%>
