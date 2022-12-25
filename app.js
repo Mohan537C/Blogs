@@ -11,7 +11,7 @@ const homecontent="This is the home page to this website and this description he
 
 app.get("/",function(req,res){
     const currentDate=new Date();
-    var month = currentDate.getMonth();
+    var month = currentDate.getMonth()+1;
     if (month < 10) month = "0" + month;
     var dateOfMonth = currentDate.getDate();
     if (dateOfMonth < 10) dateOfMonth = "0" + dateOfMonth;
