@@ -10,8 +10,13 @@ app.use(exp.static("public"));
 const homecontent="This is the home page to this website and this description helps you to use the functionalities of this website. You can compose the daily blogs in the compose page and it is uploaded to the home page automatically. You can contact the developer at the contact page. About page gives you a short description of developer's view to this site. Thank You.";
 
 app.get("/",function(req,res){
-    var now=new Date();
-    var today=now.toLocaleDateString();
+    const currentDate=new Date();
+    var month = currentDate.getMonth();
+    if (month < 10) month = "0" + month;
+    var dateOfMonth = currentDate.getDate();
+    if (dateOfMonth < 10) dateOfMonth = "0" + dateOfMonth;
+    var year = currentDate.getFullYear();
+    const today = dateOfMonth + "/" + month + "/" + year;
     res.render("home",{content:homecontent,day:today,data:blogs});
 });
 
@@ -38,9 +43,9 @@ app.get("/post/:topic",function(req,res){
 
 app.post("/",function(request,response){
     var now=new Date();
-    var time=now.toLocaleTimeString();
-    var head=request.body.head;
-    var txt="("+time+" GMT) "+request.body.blog;
+    const time=now.toLocaleTimeString();
+    const head=request.body.head;
+    const txt="("+time+" GMT) "+request.body.blog;
     const kv={
         title:head,
         body:txt
