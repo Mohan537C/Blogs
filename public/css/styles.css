@@ -22,7 +22,7 @@
    }
   
   .topnav a {
-    float: left;
+    float: right;
     color: #f2f2f2;
     text-align: center;
     padding: 20px 16px;
@@ -32,8 +32,9 @@
   .topnav .navbar-brand{
     font-size: 25px;
     padding: 14px 16px;
-    margin-left: 50px;
-    margin-right: 800px;
+    position: absolute;
+    left: 10%;
+    transform: translatex(-50%);
   }
 
   .topnav a:hover {
